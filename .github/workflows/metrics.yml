@@ -1,0 +1,33 @@
+name: Metrics
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # Atualiza todo dia às 6h UTC
+  workflow_dispatch:
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Metrics SVG Generator
+        uses: lowlighter/metrics@latest
+        with:
+          filename: github-metrics.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: header, activity, community, repositories, metadata
+          config_timezone: America/Sao_Paulo
+          config_twemoji: yes
+          plugin_stars: yes
+          plugin_isocalendar: yes
+          plugin_languages: yes
+          plugin_languages_ignored: >-
+            html, css
+          plugin_languages_threshold: 2%
+          plugin_languages_details: percentage
+          plugin_lines: yes
+          plugin_followup: yes
+          plugin_traffic: yes
+          config_display: large
+          config_padding: 0, 10
+          config_order: base.header, isocalendar, languages, lines, stars, followup, traffic
+          config_output: svg
