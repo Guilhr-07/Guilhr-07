@@ -60,7 +60,7 @@ Site responsivo com design limpo para mostrar minhas habilidades e projetos.
 <div align="center">
 
 <!-- GitHub Metrics -->
-<img src="[https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/main/github-metrics.yml](https://github.com/Guilhr-07/Guilhr-07/blob/main/.github/workflows/metrics.yml)" width="95%" alt="GitHub Metrics"/>
+<img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/main/github-metrics.svg" width="95%" alt="GitHub Metrics"/>
 
 <br/>
 
