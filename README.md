@@ -62,7 +62,7 @@
 <div align="center">
 
 <!-- GitHub Metrics -->
-<img src="https://github.com/Guilhr-07/Guilhr-07/blob/main/github-metrics.svg" width="100%" />
+<img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/main/github-metrics.svg" width="100%"/>
 
 <!-- Streak de Contribuição -->
 <img src="https://streak-stats.demolab.com?user=Guilhr-07&theme=tokyonight&hide_border=true&border_radius=10&date_format=j%20M%5B%20Y%5D" width="95%" />
