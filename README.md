@@ -60,7 +60,7 @@ Site responsivo com design limpo para mostrar minhas habilidades e projetos.
 <div align="center">
 
 <!-- GitHub Metrics -->
-<img src="<img src="https://github-readme-stats.vercel.app/api?username=Guilhr-07&theme=tokyonight&show_icons=true&hide_border=true" width="95%" alt="GitHub Stats"/>
+<img src="<img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/main/github-metrics.svg" width="95%" alt="GitHub Metrics
 " width="95%" alt="GitHub Metrics"/>
 
 <br/>
