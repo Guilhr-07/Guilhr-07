@@ -47,8 +47,14 @@ dados brutos em insights que direcionam páginas e fluxos de alta conversão.
 ## GitHub
 
 <div align="center">
+
+<img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/main/github-metrics.svg" width="95%" alt="GitHub Metrics"/>
+
+<br/>
+
 <img src="https://github-readme-stats.vercel.app/api?username=Guilhr-07&show_icons=true&hide_border=true&bg_color=0F1C18&title_color=C9A46A&text_color=ECE9DC&icon_color=3E8E7E" alt="stats" height="165"/>
 <img src="https://streak-stats.demolab.com/?user=Guilhr-07&hide_border=true&background=0F1C18&ring=C9A46A&fire=C9A46A&currStreakLabel=ECE9DC&sideNums=ECE9DC&sideLabels=B9BCA9&dates=8A8E7C" alt="streak" height="165"/>
+
 </div>
 
 ---
