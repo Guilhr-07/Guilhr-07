@@ -1,63 +1,49 @@
 <div align="center">
 
-<img src="./assets/banner.svg" alt="Guilherme Araújo de Oliveira — Engenheiro-designer, do backend ao pixel" width="100%" />
+<img src="./assets/banner.svg" alt="Guilherme Araújo, dev backend Java e Spring. O que acontece depois do clique." width="100%" />
 
 <br/>
 
-[![Portfólio](https://img.shields.io/badge/Portfólio-guilherme--portfolio.dev-0F1C18?style=flat-square&labelColor=13251F&color=3E8E7E)](https://guilherme-portfolio.dev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-guilherme--araújo--de--oliveira-0F1C18?style=flat-square&labelColor=13251F&color=C9A46A)](https://www.linkedin.com/in/guilherme-ara%C3%BAjo-de-oliveira)
-[![Email](https://img.shields.io/badge/Email-guilherme.workoliveira%40gmail.com-0F1C18?style=flat-square&labelColor=13251F&color=B9BCA9)](mailto:guilherme.workoliveira@gmail.com)
+[![Portfólio](https://img.shields.io/badge/Portfólio-guilherme--portfolio.dev-15110a?style=flat-square&labelColor=15110a&color=fbe311)](https://guilherme-portfolio.dev)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-guilherme--araújo--de--oliveira-15110a?style=flat-square&labelColor=15110a&color=f2ecdc)](https://www.linkedin.com/in/guilherme-ara%C3%BAjo-de-oliveira)
+[![Email](https://img.shields.io/badge/Email-guilherme.workoliveira%40gmail.com-15110a?style=flat-square&labelColor=15110a&color=f2ecdc)](mailto:guilherme.workoliveira@gmail.com)
 
 </div>
 
 ## Sobre
 
-Movido pela resolução de problemas complexos e pela busca por eficiência técnica, unindo minha
-base em Ciência da Computação na Anhembi Morumbi a uma visão estratégica de produto. Transito
-entre a precisão do desenvolvimento de software e a criação de interfaces que priorizam a
-experiência do usuário, sempre com foco em performance e escalabilidade.
+Vim do design. Trabalho com UX/UI na Lojas Marisa desde 2025, e por muito tempo eu entregava a tela
+e outra pessoa decidia como o dado ia ser guardado, validado e devolvido. Fui aprender essa parte.
 
-Hoje colaboro com uma das maiores referências do varejo nacional (**Lojas Marisa**), transformando
-dados brutos em insights que direcionam páginas e fluxos de alta conversão.
+Hoje estudo Ciência da Computação na Anhembi Morumbi (formatura em 2028) e escrevo API em Java e
+Spring. Procuro estágio ou primeira vaga em backend, em São Paulo ou remoto.
 
-- 🔐 Segurança pensada desde o desenho da solução, não só no deploy
-- 🧱 Separação clara entre interface, regra de negócio, dados e operação
-- 🤖 Automação de tarefas repetitivas para ganhar escala e reduzir erro
-- ✅ Testes, scripts e documentação sustentando a evolução contínua
+O que veio do design eu não larguei: quando desenho uma resposta de erro, penso em quem vai ler
+ela tentando descobrir por que a integração quebrou.
 
-## Stack
+## Três APIs, com teste no CI
 
-| | |
-|---|---|
-| **Backend & Linguagens** | Java · Spring Boot · Spring Security · Spring Data JPA · Node.js · TypeScript · Python · PHP |
-| **Dados & Banco** | PostgreSQL · MySQL · SQL · Hibernate / JPQL · Pandas |
-| **DevOps & Qualidade** | Docker · Git / GitHub Actions · JUnit · Testes de integração |
-| **Design & Produto** | Figma · UX/UI Design · Design System · UX Research |
-
-## Projetos em destaque
-
-| Projeto | O que é | Stack |
+| Projeto | O que resolve | Prova |
 |---|---|---|
-| [**E-commerce API**](https://github.com/Guilhr-07/ecommerce-api) | Catálogo com JWT stateless, leitura pública/escrita protegida, upload de imagens e Swagger | Java 21 · Spring Security · JWT · PostgreSQL · OpenAPI |
-| [**Controle Financeiro API**](https://github.com/Guilhr-07/controle-financeiro-api) | Finanças pessoais com resumo mensal agregado no banco via JPQL, precisão monetária | Java 21 · Spring Boot · PostgreSQL · JUnit 5 |
-| [**Gestor de Tarefas API**](https://github.com/Guilhr-07/gestor-tarefas-api) | API REST em camadas, erros padronizados (RFC 7807), testes de integração | Java 21 · Spring Data JPA · H2/PostgreSQL |
+| [**E-commerce API**](https://github.com/Guilhr-07/ecommerce-api) | Catálogo aberto para leitura, escrita só para ADMIN. JWT, BCrypt, upload de imagem, Swagger | 9 endpoints, 15 testes |
+| [**Controle Financeiro API**](https://github.com/Guilhr-07/controle-financeiro-api) | Gastos com resumo mensal. O Postgres soma, não o Java, e todo valor é BigDecimal | 2 consultas JPQL agregam no banco, 9 testes |
+| [**Gestor de Tarefas API**](https://github.com/Guilhr-07/gestor-tarefas-api) | CRUD com camadas separadas e todo erro no formato da RFC 7807 | 8 testes |
 
-→ Portfólio completo com case studies em [guilherme-portfolio.dev](https://guilherme-portfolio.dev)
+Java 21, Spring Boot, Spring Data JPA, PostgreSQL, Flyway, JUnit 5, Docker e
+GitHub Actions nas três. Cada README tem a seção "O que ficou de fora".
 
-## GitHub
+O case de cada uma, com o que eu escolhi e por quê, está em
+[guilherme-portfolio.dev](https://guilherme-portfolio.dev).
+
+## Agora
+
+- **Estudando:** deploy de uma das APIs na AWS com GitHub Actions, depois Kafka.
+- **Ainda não sei:** AWS e mensageria em produção. Está na fila, com data.
 
 <div align="center">
-
-<img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/main/github-metrics.svg" width="95%" alt="GitHub Metrics"/>
 
 <br/>
 
-<img src="https://streak-stats.demolab.com/?user=Guilhr-07&hide_border=true&background=0F1C18&ring=C9A46A&fire=C9A46A&currStreakLabel=ECE9DC&sideNums=ECE9DC&sideLabels=B9BCA9&dates=8A8E7C" alt="streak" height="165"/>
+<img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/main/github-metrics.svg" width="95%" alt="Métricas do GitHub"/>
 
-</div>
-
----
-
-<div align="center">
-<sub>São Paulo, Brasil · Disponível para vagas Backend / Full-Stack Júnior</sub>
 </div>
