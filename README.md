@@ -12,12 +12,12 @@
 
 ## Sobre
 
-Vim do design. Entrei na Lojas Marisa em 2025 e hoje trabalho com UX/UI. Eu entregava a tela e
-outra pessoa decidia como o dado ia ser guardado, validado e devolvido. Fui aprender essa parte.
+Vim do design. Trabalho com UX/UI no time de CRO da Lojas Marisa: página de produto, checkout e
+landing pages decididos pelo comportamento da cliente. Eu entregava a tela e outra pessoa decidia
+como o dado ia ser guardado, validado e devolvido. Fui aprender essa parte.
 
 Hoje estudo Ciência da Computação na Anhembi Morumbi (formatura em 2028) e faço as duas pontas:
-API em Java e Spring no servidor, React e Next.js na tela. Procuro estágio ou primeira vaga como
-dev fullstack, em São Paulo.
+API em Java e Spring no servidor, React e Next.js na tela.
 
 O que veio do design eu não larguei: quando desenho uma resposta de erro, penso em quem vai ler
 ela às duas da manhã tentando descobrir por que a integração quebrou.
