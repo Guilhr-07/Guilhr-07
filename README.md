@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/banner.png" alt="Guilherme Araújo, dev fullstack, Java e React. O que acontece depois do clique." width="100%" />
+<img src="./assets/banner.png" alt="Guilherme Oliveira, dev fullstack, Java e React. O que acontece depois do clique." width="100%" />
 
 <br/>
 
@@ -13,8 +13,8 @@
 ## Sobre
 
 Vim do design. Trabalho com UX/UI no time de CRO da Lojas Marisa: página de produto, checkout e
-landing pages decididos pelo comportamento da cliente. Eu entregava a tela e outra pessoa decidia
-como o dado ia ser guardado, validado e devolvido. Fui aprender essa parte.
+landing pages decididos pelo comportamento da cliente. Toda mudança na tela vira número, e isso
+me deixou curioso pelo outro lado: como o dado é guardado, validado e devolvido. Fui estudar essa parte.
 
 Hoje estudo Ciência da Computação na Anhembi Morumbi (formatura em 2028) e faço as duas pontas:
 API em Java e Spring no servidor, React e Next.js na tela.
