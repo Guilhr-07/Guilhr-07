@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/banner.png" alt="Guilherme Araújo, dev fullstack, Java e React. O que acontece depois do clique." width="100%" />
+<img src="./assets/banner.png" alt="Guilherme Oliveira, dev fullstack, Java e React. O que acontece depois do clique." width="100%" />
 
 <br/>
 
