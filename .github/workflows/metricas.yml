@@ -1,7 +1,7 @@
 name: Métricas
 
 # Gera o painel do README a partir do código das APIs e publica na branch
-# `metricas`. O main só recebe mudança por pull request; a branch `painel`
+# `painel`. O main só recebe mudança por pull request; a branch `painel`
 # guarda só o arquivo gerado, sempre em um commit.
 
 on:
