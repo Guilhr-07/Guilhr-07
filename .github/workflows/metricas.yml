@@ -1,0 +1,56 @@
+name: Métricas
+
+# Gera o painel do README a partir do código das APIs e publica na branch
+# `painel`. O main só recebe mudança por pull request; a branch `painel`
+# guarda só o arquivo gerado, sempre em um commit.
+
+on:
+  schedule:
+    - cron: "17 9 * * *" # todo dia, 06:17 em São Paulo
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["metricas/**", "README.md", ".github/workflows/metricas.yml"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: metricas-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  conferir:
+    name: README bate com o código
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: pip install --quiet fonttools==4.68.0
+      - run: python3 metricas/gerar.py --saida saida --conferir README.md
+
+  publicar:
+    name: Publica o painel
+    needs: conferir
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: pip install --quiet fonttools==4.68.0
+      - run: python3 metricas/gerar.py --saida saida
+      - name: Envia para a branch painel
+        working-directory: saida
+        run: |
+          git init --quiet --initial-branch=painel
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add metricas.svg metricas.json
+          git commit --quiet --message "Atualiza o painel de métricas"
+          git push --force --quiet "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" painel
