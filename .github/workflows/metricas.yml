@@ -1,6 +1,6 @@
 name: Métricas
 
-# Gera o painel do README a partir do código das APIs e publica na branch
+# Gera as peças do README (cabeçalho, atividade, tecnologias, APIs) e publica na branch
 # `painel`. O main só recebe mudança por pull request; a branch `painel`
 # guarda só o arquivo gerado, sempre em um commit.
 
@@ -31,6 +31,8 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - run: pip install --quiet fonttools==4.68.0
       - run: python3 metricas/gerar.py --saida saida --conferir README.md
+      - name: Mostra os dados coletados
+        run: cat saida/dados.json
 
   publicar:
     name: Publica o painel
@@ -51,6 +53,6 @@ jobs:
           git init --quiet --initial-branch=painel
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add metricas.svg metricas.json
-          git commit --quiet --message "Atualiza o painel de métricas"
+          git add *.svg dados.json
+          git commit --quiet --message "Atualiza as peças do perfil"
           git push --force --quiet "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" painel

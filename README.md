@@ -1,6 +1,9 @@
 <div align="center">
 
-<img src="./assets/banner.png" alt="Guilherme Oliveira, dev fullstack, Java e React. O que acontece depois do clique." width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/cabecalho-escuro.svg" />
+  <img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/cabecalho-claro.svg" alt="Guilherme Oliveira, dev fullstack em formação, em São Paulo. Java e Spring Boot no servidor, React e Next.js na tela. O que acontece depois do clique." width="100%" />
+</picture>
 
 <br/>
 
@@ -24,29 +27,20 @@ Estudo Ciência da Computação na Universidade Anhembi Morumbi, com formatura e
 O que veio do design eu não larguei: quando desenho uma resposta de erro, penso em quem vai ler
 ela às duas da manhã tentando descobrir por que a integração quebrou.
 
-## Três APIs, com teste no CI
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/atividade-escuro.svg" />
+  <img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/atividade-claro.svg" alt="Atividade no GitHub nos últimos 12 meses: calendário de contribuições, total, dias ativos e sequências. Atualizado todo dia." width="100%" />
+</picture>
 
-| Projeto | O que resolve | Medido no código |
-|---|---|---|
-| [**E-commerce API**](https://github.com/Guilhr-07/ecommerce-api) | Catálogo aberto para leitura, escrita só para ADMIN. JWT, BCrypt, upload de imagem, Swagger | 9 endpoints, 15 testes |
-| [**Controle Financeiro API**](https://github.com/Guilhr-07/controle-financeiro-api) | Gastos com resumo mensal. O Postgres soma, não o Java, e todo valor é BigDecimal | 9 endpoints, 9 testes, duas consultas JPQL agregando no banco |
-| [**Gestor de Tarefas API**](https://github.com/Guilhr-07/gestor-tarefas-api) | CRUD com camadas separadas e todo erro no formato da RFC 7807 | 6 endpoints, 8 testes |
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/tecnologias-escuro.svg" />
+  <img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/tecnologias-claro.svg" alt="Tecnologias por camada. Backend: Java 21, Spring Boot 4, Spring Security, JWT, Spring Data JPA. Banco e dados: PostgreSQL, SQL, JPQL, Flyway. Front-end: React, Next.js, TypeScript, Tailwind CSS. Testes e operação: JUnit 5, MockMvc, Docker, GitHub Actions." width="100%" />
+</picture>
 
-No total, **24 endpoints** REST e **32 testes** de integração, com Docker e CI no GitHub Actions nas três.
-O `MANUAL.md` de cada repositório tem a seção "O que ficou de fora".
+<details>
+<summary>As mesmas tecnologias em texto</summary>
 
-<a href="./metricas/gerar.py">
-  <img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/metricas.svg" alt="Painel gerado todo dia a partir do código das três APIs: endpoints, testes, estado do CI no main e data do último commit de cada uma." width="100%" />
-</a>
-
-Eu não digito esses números. Um [script](./metricas/gerar.py) clona as três APIs todo dia, conta as
-anotações `@GetMapping` e companhia, conta os `@Test` e lê a última execução do CI. Se a tabela acima
-discordar do código, o [workflow](./.github/workflows/metricas.yml) falha.
-
-O case de cada uma, com o que eu escolhi e por quê, está em
-[guilherme-portfolio.dev](https://guilherme-portfolio.dev).
-
-## Stack
+<br/>
 
 | Camada | O que eu uso | Onde |
 |---|---|---|
@@ -57,7 +51,60 @@ O case de cada uma, com o que eu escolhi e por quê, está em
 | Outros backends | Python com FastAPI, Node.js com Express | Lince e Forja |
 | Design | Figma, design system, protótipo | trabalho, desde 2025 |
 
-Só entra na tabela o que tem código meu por trás. AWS e Kafka ainda não entram: estão em "Agora".
+Só entra o que tem código meu por trás. AWS e Kafka ainda não entram: estão em "Agora".
+
+</details>
+
+## Três APIs, com teste no CI
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/apis-escuro.svg" />
+  <img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/apis-claro.svg" alt="Medido no código das três APIs: endpoints REST, testes de integração, APIs com CI passando e divisão de linguagens. Conferido todo dia." width="100%" />
+</picture>
+
+<a href="https://github.com/Guilhr-07/ecommerce-api">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/projeto-ecommerce-api-escuro.svg" />
+  <img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/projeto-ecommerce-api-claro.svg" alt="E-commerce API: catálogo com login JWT e área de administrador. Endpoints, testes, estado do CI e último commit." width="100%" />
+</picture>
+</a>
+
+<a href="https://github.com/Guilhr-07/controle-financeiro-api">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/projeto-controle-financeiro-api-escuro.svg" />
+  <img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/projeto-controle-financeiro-api-claro.svg" alt="Controle Financeiro API: receitas e despesas com resumo mensal somado no banco. Endpoints, testes, estado do CI e último commit." width="100%" />
+</picture>
+</a>
+
+<a href="https://github.com/Guilhr-07/gestor-tarefas-api">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/projeto-gestor-tarefas-api-escuro.svg" />
+  <img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/projeto-gestor-tarefas-api-claro.svg" alt="Gestor de Tarefas API: tarefas com filtro, paginação e erro em RFC 7807. Endpoints, testes, estado do CI e último commit." width="100%" />
+</picture>
+</a>
+
+No total, **24 endpoints** REST e **32 testes** de integração, com Docker e CI no GitHub Actions nas três.
+Eu não digito esses números. Um [script](./metricas/gerar.py) clona as três APIs todo dia, conta as
+anotações `@GetMapping` e companhia, conta os `@Test` e lê a última execução do CI. Se a tabela abaixo
+discordar do código, o [workflow](./.github/workflows/metricas.yml) falha.
+
+<details>
+<summary>Os mesmos números em tabela</summary>
+
+<br/>
+
+| Projeto | O que resolve | Medido no código |
+|---|---|---|
+| [**E-commerce API**](https://github.com/Guilhr-07/ecommerce-api) | Catálogo aberto para leitura, escrita só para ADMIN. JWT, BCrypt, upload de imagem, Swagger | 9 endpoints, 15 testes |
+| [**Controle Financeiro API**](https://github.com/Guilhr-07/controle-financeiro-api) | Gastos com resumo mensal. O Postgres soma, não o Java, e todo valor é BigDecimal | 9 endpoints, 9 testes, duas consultas JPQL agregando no banco |
+| [**Gestor de Tarefas API**](https://github.com/Guilhr-07/gestor-tarefas-api) | CRUD com camadas separadas e todo erro no formato da RFC 7807 | 6 endpoints, 8 testes |
+
+O `MANUAL.md` de cada repositório tem a seção "O que ficou de fora".
+
+</details>
+
+O case de cada uma, com o que eu escolhi e por quê, está em
+[guilherme-portfolio.dev](https://guilherme-portfolio.dev).
 
 ## Como eu trabalho
 
