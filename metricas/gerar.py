@@ -7,7 +7,10 @@ anotação @Test em src/test, e o estado do CI vem da última execução no main
   python metricas/gerar.py --saida saida/      gera metricas.svg e metricas.json
   python metricas/gerar.py --conferir README.md   falha se o README discordar do código
 
-Só biblioteca padrão. Usa `git` para clonar e `gh` para a API do GitHub.
+O texto do painel vira contorno (fontTools), porque SVG dentro de <img> não
+carrega webfont: no GitHub ele sairia na fonte do sistema de quem abre.
+
+Precisa de `git`, `gh` e `pip install fonttools`.
 """
 from __future__ import annotations
 
@@ -18,8 +21,12 @@ import re
 import subprocess
 import sys
 import tempfile
+from functools import lru_cache
 from html import escape
 from pathlib import Path
+
+from fontTools.pens.svgPathPen import SVGPathPen
+from fontTools.ttLib import TTFont
 
 AQUI = Path(__file__).parent
 ENDPOINT = re.compile(r"^\s*@(Get|Post|Put|Patch|Delete)Mapping\b", re.M)
@@ -29,8 +36,39 @@ TESTE = re.compile(r"^\s*@(Test|ParameterizedTest|RepeatedTest)\b", re.M)
 FUNDO, SUPERFICIE, TEXTO, TEXTO2 = "#15110a", "#1e1911", "#f2ecdc", "#a89f8a"
 ACENTO, LINHA, OK, ERRO = "#fbe311", "#2f281c", "#9bd49b", "#f08a7e"
 CORES_LING = [ACENTO, TEXTO, "#8c8369", "#5a5340"]
-# Fonte do sistema: SVG dentro de <img> não carrega webfont.
-MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace"
+
+
+@lru_cache
+def fonte(peso: int):
+    f = TTFont(AQUI / "fontes" / f"MartianMono-{peso}.woff")
+    return f, f.getBestCmap(), f.getGlyphSet(), f["head"].unitsPerEm
+
+
+def largura(texto: str, tam: float, peso: int = 400) -> float:
+    f, cmap, _, upm = fonte(peso)
+    return sum(f["hmtx"][cmap[ord(c)]][0] for c in texto) * tam / upm
+
+
+def contorno(x: float, y: float, texto, cor: str = TEXTO, tam: float = 13,
+             peso: int = 400, ancora: str = "start") -> str:
+    """Desenha o texto como <path>, glifo por glifo, na Martian Mono."""
+    texto = str(texto)
+    f, cmap, glifos, upm = fonte(peso)
+    if ancora == "end":
+        x -= largura(texto, tam, peso)
+    escala, partes, avanco = tam / upm, [], 0.0
+    for c in texto:
+        if ord(c) not in cmap:
+            raise SystemExit(f"a fonte não tem o caractere {c!r} (em {texto!r})")
+        nome = cmap[ord(c)]
+        caneta = SVGPathPen(glifos)
+        glifos[nome].draw(caneta)
+        d = caneta.getCommands()
+        if d:
+            partes.append(f'<path transform="translate({x + avanco * escala:.2f} {y}) '
+                          f'scale({escala:.5f} {-escala:.5f})" d="{d}"/>')
+        avanco += f["hmtx"][nome][0]
+    return f'<g fill="{cor}">' + "".join(partes) + "</g>"
 
 
 def rodar(*cmd: str) -> str:
@@ -108,9 +146,7 @@ def br(data: str | None) -> str:
 def svg(d: dict) -> str:
     L, M = 840, 32  # largura e margem
     n = len(d["apis"])
-    t = lambda x, y, s, cor=TEXTO, tam=13, peso=400, ancora="start": (
-        f'<text x="{x}" y="{y}" fill="{cor}" font-size="{tam}" font-weight="{peso}" '
-        f'text-anchor="{ancora}">{escape(str(s))}</text>')
+    t = contorno
     p: list[str] = []
 
     p.append(t(M, 44, "MEDIDO NO CÓDIGO DAS TRÊS APIS", TEXTO2, 11))
@@ -126,12 +162,12 @@ def svg(d: dict) -> str:
         x = M + i * larg
         if i:
             p.append(f'<line x1="{x}" y1="62" x2="{x}" y2="146" stroke="{LINHA}"/>')
-        p.append(t(x + (16 if i else 0), 112, valor, ACENTO, 40, 700))
+        p.append(t(x + (16 if i else 0), 112, valor, ACENTO, 38, 500))
         p.append(t(x + (16 if i else 0), 134, rotulo, TEXTO, 12))
     p.append(f'<line x1="{M}" y1="146" x2="{L - M}" y2="146" stroke="{LINHA}"/>')
 
     # Uma linha por API.
-    cols = [M, 330, 450, 560, L - M]
+    cols = [M, 330, 430, 520, L - M]
     y = 176
     for x, rot, anc in [(cols[0], "API", "start"), (cols[1], "ENDPOINTS", "end"),
                         (cols[2], "TESTES", "end"), (cols[3] - 60, "CI NO MAIN", "start"),
@@ -141,7 +177,7 @@ def svg(d: dict) -> str:
         y += 30
         cor_ci = {"passou": OK, "falhou": ERRO}.get(a["ci"]["estado"], TEXTO2)
         ci = a["ci"]["estado"] + (f" em {br(a['ci']['data'])}" if a["ci"]["data"] else "")
-        p.append(t(cols[0], y, a["nome"], TEXTO, 13, 600))
+        p.append(t(cols[0], y, a["nome"], TEXTO, 13, 500))
         p.append(t(cols[1], y, a["endpoints"], TEXTO, 13, ancora="end"))
         p.append(t(cols[2], y, a["testes"], TEXTO, 13, ancora="end"))
         p.append(f'<rect x="{cols[3] - 60}" y="{y - 9}" width="8" height="8" fill="{cor_ci}"/>')
@@ -164,7 +200,7 @@ def svg(d: dict) -> str:
             rot = f"{l['nome']} {str(l['pct']).replace('.', ',')}%"
             legendas.append(f'<rect x="{legenda_x}" y="{y + 20}" width="8" height="8" fill="{cor}"/>'
                             + t(legenda_x + 14, y + 28, rot, TEXTO, 12))
-            legenda_x += 14 + len(rot) * 7.3 + 24
+            legenda_x += 14 + largura(rot, 12) + 28
         p.extend(legendas)
         y += 28
 
@@ -176,8 +212,7 @@ def svg(d: dict) -> str:
     resumo = (f"{d['endpoints']} endpoints REST, {d['testes']} testes de integração, "
               f"{d['ci_verde']} de {n} APIs com CI passando. Conferido em {br(d['conferido_em'])}.")
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{L}" height="{altura}" '
-            f'viewBox="0 0 {L} {altura}" role="img" aria-label="{escape(resumo)}" '
-            f'font-family="{MONO}">\n<title>{escape(resumo)}</title>\n'
+            f'viewBox="0 0 {L} {altura}" role="img" aria-label="{escape(resumo)}">\n<title>{escape(resumo)}</title>\n'
             f'<rect width="{L}" height="{altura}" fill="{FUNDO}"/>\n' + "\n".join(p) + "\n</svg>\n")
 
 
