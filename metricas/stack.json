@@ -1,0 +1,11 @@
+{
+  "nota": "Só entra o que tem código meu por trás. A fonte é `saber` em portfolio-guilherme/src/data/portfolio.ts.",
+  "camadas": [
+    { "nome": "Backend", "itens": ["Java 21", "Spring Boot 4", "Spring Security", "JWT", "Spring Data JPA"] },
+    { "nome": "Banco e dados", "itens": ["PostgreSQL", "SQL", "JPQL", "Flyway"] },
+    { "nome": "Front-end", "itens": ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
+    { "nome": "Testes e operação", "itens": ["JUnit 5", "MockMvc", "Docker", "GitHub Actions"] }
+  ],
+  "tambem": ["Python", "FastAPI", "Node.js", "Express", "Figma"],
+  "estudando": ["AWS", "Kafka"]
+}

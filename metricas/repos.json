@@ -1,5 +1,17 @@
 [
-  { "repo": "Guilhr-07/ecommerce-api", "nome": "E-commerce API" },
-  { "repo": "Guilhr-07/controle-financeiro-api", "nome": "Controle Financeiro API" },
-  { "repo": "Guilhr-07/gestor-tarefas-api", "nome": "Gestor de Tarefas API" }
+  {
+    "repo": "Guilhr-07/ecommerce-api",
+    "nome": "E-commerce API",
+    "resumo": ["Catálogo aberto para leitura, escrita só para administrador.", "Login com JWT, senha com BCrypt, upload de imagem e Swagger."]
+  },
+  {
+    "repo": "Guilhr-07/controle-financeiro-api",
+    "nome": "Controle Financeiro API",
+    "resumo": ["Receitas e despesas com resumo do mês.", "O PostgreSQL soma, não o Java, e todo valor é BigDecimal."]
+  },
+  {
+    "repo": "Guilhr-07/gestor-tarefas-api",
+    "nome": "Gestor de Tarefas API",
+    "resumo": ["Tarefas com filtro por status e paginação.", "Camadas separadas e todo erro no formato da RFC 7807."]
+  }
 ]
