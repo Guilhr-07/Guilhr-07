@@ -32,8 +32,8 @@ ela às duas da manhã tentando descobrir por que a integração quebrou.
 | [**Controle Financeiro API**](https://github.com/Guilhr-07/controle-financeiro-api) | Gastos com resumo mensal. O Postgres soma, não o Java, e todo valor é BigDecimal | 9 endpoints, 9 testes, duas consultas JPQL agregando no banco |
 | [**Gestor de Tarefas API**](https://github.com/Guilhr-07/gestor-tarefas-api) | CRUD com camadas separadas e todo erro no formato da RFC 7807 | 6 endpoints, 8 testes |
 
-No total, **24 endpoints** REST e **32 testes** de integração. Java 21, Spring Boot 4, Spring Data JPA,
-PostgreSQL, Flyway, JUnit 5, Docker e GitHub Actions nas três. Cada README tem a seção "O que ficou de fora".
+No total, **24 endpoints** REST e **32 testes** de integração, com Docker e CI no GitHub Actions nas três.
+O `MANUAL.md` de cada repositório tem a seção "O que ficou de fora".
 
 <a href="./metricas/gerar.py">
   <img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/metricas.svg" alt="Painel gerado todo dia a partir do código das três APIs: endpoints, testes, estado do CI no main e data do último commit de cada uma." width="100%" />
