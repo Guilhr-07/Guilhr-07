@@ -28,13 +28,9 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - run: pip install --quiet fonttools==4.68.0
       - run: python3 metricas/gerar.py --saida saida --conferir README.md
-      - uses: actions/upload-artifact@v4
-        with:
-          name: metricas
-          path: saida/
 
   publicar:
     name: Publica o painel
@@ -43,19 +39,18 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: metricas
-          path: saida
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: pip install --quiet fonttools==4.68.0
+      - run: python3 metricas/gerar.py --saida saida
       - name: Envia para a branch painel
         working-directory: saida
-        env:
-          TOKEN: ${{ github.token }}
         run: |
           git init --quiet --initial-branch=painel
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add metricas.svg metricas.json
           git commit --quiet --message "Atualiza o painel de métricas"
-          git push --force --quiet "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" painel
+          git push --force --quiet "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" painel
