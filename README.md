@@ -36,7 +36,7 @@ No total, **24 endpoints** REST e **32 testes** de integração. Java 21, Spring
 PostgreSQL, Flyway, JUnit 5, Docker e GitHub Actions nas três. Cada README tem a seção "O que ficou de fora".
 
 <a href="./metricas/gerar.py">
-  <img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/metricas/metricas.svg" alt="Painel gerado todo dia a partir do código das três APIs: endpoints, testes, estado do CI no main e data do último commit de cada uma." width="100%" />
+  <img src="https://raw.githubusercontent.com/Guilhr-07/Guilhr-07/painel/metricas.svg" alt="Painel gerado todo dia a partir do código das três APIs: endpoints, testes, estado do CI no main e data do último commit de cada uma." width="100%" />
 </a>
 
 Eu não digito esses números. Um [script](./metricas/gerar.py) clona as três APIs todo dia, conta as

@@ -1,7 +1,7 @@
 name: Métricas
 
 # Gera o painel do README a partir do código das APIs e publica na branch
-# `metricas`. O main só recebe mudança por pull request; a branch `metricas`
+# `metricas`. O main só recebe mudança por pull request; a branch `painel`
 # guarda só o arquivo gerado, sempre em um commit.
 
 on:
@@ -47,14 +47,14 @@ jobs:
         with:
           name: metricas
           path: saida
-      - name: Envia para a branch metricas
+      - name: Envia para a branch painel
         working-directory: saida
         env:
           TOKEN: ${{ github.token }}
         run: |
-          git init --quiet --initial-branch=metricas
+          git init --quiet --initial-branch=painel
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add metricas.svg metricas.json
           git commit --quiet --message "Atualiza o painel de métricas"
-          git push --force --quiet "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" metricas
+          git push --force --quiet "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" painel
