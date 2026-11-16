@@ -45,6 +45,7 @@ query($login: String!) {
       totalCommitContributions
       totalPullRequestContributions
       totalIssueContributions
+      restrictedContributionsCount
       contributionCalendar {
         totalContributions
         weeks { contributionDays { date contributionCount weekday } }
@@ -131,6 +132,7 @@ def coletar_atividade() -> dict:
         "commits": c["totalCommitContributions"],
         "prs": c["totalPullRequestContributions"],
         "issues": c["totalIssueContributions"],
+        "privadas": c["restrictedContributionsCount"],
         "total": c["contributionCalendar"]["totalContributions"],
         "semanas": [[{"data": d["date"], "n": d["contributionCount"], "dia": d["weekday"]}
                      for d in s["contributionDays"]] for s in c["contributionCalendar"]["weeks"]],
@@ -232,7 +234,7 @@ def atividade(a: dict, hoje: str, tema: str) -> str:
     p.add(p.linha(M, 60, L - M, 60, t["texto"]))
 
     celulas = [(milhar(a["total"]), "contribuições"), (r["ativos"], "dias ativos"),
-               (r["atual"], "dias seguidos agora"), (r["maior"], "maior sequência, em dias")]
+               (r["atual"], "sequência atual, em dias"), (r["maior"], "maior sequência, em dias")]
     larg = (L - 2 * M) / 4
     for i, (valor, rotulo) in enumerate(celulas):
         x = M + i * larg
@@ -263,9 +265,13 @@ def atividade(a: dict, hoje: str, tema: str) -> str:
         p.add(f'<g class="surge" style="animation-delay:{300 + i * 16}ms">' + "".join(quadros) + "</g>")
 
     y = y0 + 7 * passo + 22
-    partes = [f"{milhar(a['commits'])} commits", f"{milhar(a['prs'])} pull requests", f"{milhar(a['issues'])} issues"]
+    # Commits e pull requests só existem na API para repositório público, e o
+    # total do calendário inclui os privados. Mostrar os dois lado a lado confunde.
+    partes = []
     if r["pico"]["data"]:
         partes.append(f"dia mais ativo: {br(r['pico']['data'], ano=False)}, com {r['pico']['n']}")
+    if a.get("privadas"):
+        partes.append(f"{milhar(a['privadas'])} em repositório privado")
     p.add(p.texto(M, y, ", ".join(partes), t["texto2"], 11))
     x = L - M - largura("mais", 10.5)
     p.add(p.texto(x, y, "mais", t["texto2"], 10.5))
