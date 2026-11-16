@@ -373,7 +373,7 @@ def projeto(a: dict, tema: str) -> str:
                   f"CI {ci}. Último commit em {br(a['ultimo_commit'])}.", tema)
     t, M = p.t, 28
 
-    p.add(f'<g class="sobe">' + p.texto(M, 50, a["nome"], tam=26, peso=800, familia="display") + "</g>")
+    p.add(p.texto(M, 50, a["nome"], tam=26, peso=800, familia="display"))
     for i, linha_txt in enumerate(a["resumo"]):
         p.add(p.texto(M, 80 + i * 21, linha_txt, t["texto2"], 13))
     p.add(p.linha(M, 124, LARGURA - M, 124))
