@@ -121,7 +121,7 @@ O case de cada uma, com o que eu escolhi e por quê, está em
 
 ## Agora
 
-- **Na fila, até novembro:** a E-commerce API no ar na AWS, com deploy pelo GitHub Actions e OIDC. Depois, Kafka.
+- **Na fila:** a E-commerce API no ar na AWS, com deploy pelo GitHub Actions e OIDC. Depois, Kafka.
 - **Ainda não tenho:** API minha rodando em produção, AWS e mensageria. Hoje as três sobem no Docker da minha máquina.
 
 ## Contato
