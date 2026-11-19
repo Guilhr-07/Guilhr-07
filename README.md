@@ -8,7 +8,7 @@
 <br/>
 
 [![Portfólio](https://img.shields.io/badge/Portfólio-guilherme--portfolio.dev-15110a?style=flat-square&labelColor=15110a&color=fbe311)](https://guilherme-portfolio.dev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-guilherme--araújo--de--oliveira-15110a?style=flat-square&labelColor=15110a&color=f2ecdc)](https://www.linkedin.com/in/guilherme-ara%C3%BAjo-de-oliveira)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-guilherme--araujo--oliveira-15110a?style=flat-square&labelColor=15110a&color=f2ecdc)](https://www.linkedin.com/in/guilherme-araujo-oliveira)
 [![Email](https://img.shields.io/badge/Email-guilherme.workoliveira%40gmail.com-15110a?style=flat-square&labelColor=15110a&color=f2ecdc)](mailto:guilherme.workoliveira@gmail.com)
 
 </div>
@@ -128,5 +128,5 @@ O case de cada uma, com o que eu escolhi e por quê, está em
 
 - Site e cases: [guilherme-portfolio.dev](https://guilherme-portfolio.dev)
 - Currículo em PDF: [guilherme-portfolio.dev/Guilherme-Araujo-Curriculo.pdf](https://guilherme-portfolio.dev/Guilherme-Araujo-Curriculo.pdf)
-- LinkedIn: [linkedin.com/in/guilherme-araújo-de-oliveira](https://www.linkedin.com/in/guilherme-ara%C3%BAjo-de-oliveira)
+- LinkedIn: [linkedin.com/in/guilherme-araujo-oliveira](https://www.linkedin.com/in/guilherme-araujo-oliveira)
 - E-mail: [guilherme.workoliveira@gmail.com](mailto:guilherme.workoliveira@gmail.com)
